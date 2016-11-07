@@ -119,6 +119,8 @@
 |INI[26]|MULTI_OR_SINGLE|单件小批量/批量生产
 |INI[27]|C_INIT|头架在程序结束调整到合适角度
 |INI[28]|Z_INIT|内螺纹时台面起始位置
+|INI[29]|TOUCH1_POINT_CACU_FLAG|新砂轮1磨削接触位计算标记
+|INI[30]|TOUCH2_POINT_CACU_FLAG|新砂轮2磨削接触位计算标记
 |||
 |**对刀(TOOL_SET)**||
 |TOOL_SET[0]|RANDOM_POS|初始对刀点Z轴坐标
