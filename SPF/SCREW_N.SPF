@@ -20,6 +20,8 @@ IF GRIND[1]==1
         PROCESS[16]=PROCESS[16]-(DRESSER[19]-1)*DRESSER[15];界面精磨数据
         PROCESS[15]=PROCESS[15]-(DRESSER[19]-1)*DRESSER[15];界面精磨数据
     ENDIF
+    INI[29]=0;新砂轮1磨削接触位计算标记
+    INI[30]=0;新砂轮2磨削接触位计算标记
     GOTOF G_ENDING
 ENDIF
 
