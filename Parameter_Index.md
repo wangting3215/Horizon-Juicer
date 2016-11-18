@@ -73,6 +73,9 @@
 |DRESSER[46]|DRESS_EDGE_CENTER|金刚笔对准砂轮回转中心X轴位置
 |DRESSER[47]|DRESS_EDGE_SAFE_REAL|实际砂轮边缘修整安全深度值
 |DRESSER[48]|DRESS_EDGE_SAFE_ADD|实际砂轮边缘修整安全深度多走部分
+|DRESSER[49]|DRESS_STYLUS_WHEEL_DISTANCE|金刚笔与砂轮中心垂直距离
+|DRESSER[50]|DRESS_EDGE_RIGHT|砂轮边缘修整接触砂轮右边缘位置
+|DRESSER[51]|DRESS_EDGE_SAFE_ADD_ANG|实际砂轮边缘修整安全深度多走部分角度
 |||
 |**初始化参数(INI)**||
 |INI[0]|ROTATION|螺纹旋向(0右旋/1左旋)
