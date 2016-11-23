@@ -20,6 +20,8 @@ IF GRIND[1]==1
         PROCESS[16]=PROCESS[16]-(DRESSER[19]-1)*DRESSER[15];界面精磨数据
         PROCESS[15]=PROCESS[15]-(DRESSER[19]-1)*DRESSER[15];界面精磨数据
     ENDIF
+    INI[29]=0;新砂轮1磨削接触位计算标记
+    INI[30]=0;新砂轮2磨削接触位计算标记
     GOTOF G_ENDING
 ENDIF
 
@@ -74,6 +76,7 @@ WHILE(TECH_TIME[0]+TECH_TIME[1]+TECH_TIME[2]+TECH_TIME[3]+TECH_TIME[4]<=TECHNOLO
     S_BCYC;工序进给大循环判断
     S_LINESPEED_GRIND;磨削时砂轮速度调节子程序
 ENDWHILE
+INI[31]=INI[31]+1;工件计件
 ;-------------------------------------------------------
 G_ENDING:
 
