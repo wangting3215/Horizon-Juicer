@@ -90,6 +90,8 @@
 |DRESSER[67]|JIAJU_GRESS_FEED|夹具修整砂轮,进刀量
 |DRESSER[68]|JIAJU_GRESS_CUMU|夹具磨削/修整砂轮,修整次数累积
 |DRESSER[69]|JIAJU_GRIND_FEED|夹具磨削,进刀量
+|DRESSER[70]|TECH_DRESS_CUMU1|粗砂轮界面工艺修整量总量
+|DRESSER[71]|TECH_DRESS_CUMU2|精砂轮界面工艺修整量总量
 |||
 |**初始化参数(INI)**||
 |INI[0]|ROTATION|螺纹旋向(0右旋/1左旋)
