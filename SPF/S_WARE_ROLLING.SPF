@@ -15,7 +15,11 @@ ELSE
     G90 G1 AX[AXIVER]=WHEEL[20] F=DRESSER[10];到达修整位置
 ENDIF
 ;MSG("修整接触停留中")
-G4 F=WHEEL[18]
+IF PROCESS[17]==0;砂轮1
+    G4 F=WHEEL[18]
+ELSE
+    G4 F=WHEEL[25]
+ENDIF
 ;MSG("修整轮回退")
 IF GRIND[0]<>1;不是内螺纹
     IF PROCESS[17]==0;砂轮1
