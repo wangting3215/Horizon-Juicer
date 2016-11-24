@@ -1,3 +1,5 @@
+#
+
 |数组|全局变量|意义
 |:----:|:----:|:----:|
 |**需要提前手动输入**|
@@ -88,6 +90,8 @@
 |DRESSER[67]|JIAJU_GRESS_FEED|夹具修整砂轮,进刀量
 |DRESSER[68]|JIAJU_GRESS_CUMU|夹具磨削/修整砂轮,修整次数累积
 |DRESSER[69]|JIAJU_GRIND_FEED|夹具磨削,进刀量
+|DRESSER[70]|TECH_DRESS_CUMU1|粗砂轮界面工艺修整量总量
+|DRESSER[71]|TECH_DRESS_CUMU2|精砂轮界面工艺修整量总量
 |||
 |**初始化参数(INI)**||
 |INI[0]|ROTATION|螺纹旋向(0右旋/1左旋)
@@ -166,13 +170,14 @@
 |WHEEL[15]|DWHEEL_VER_DISTANCE|双滚轮垂直误差
 |WHEEL[16]|HY_LEFT|液压左开关
 |WHEEL[17]|HY_LEFT|液压右开关
-|WHEEL[18]|MOLD_TIME|成型修整轮向下停留时间
+|WHEEL[18]|MOLD_TIME1|成型修整轮向下停留时间1
 |WHEEL[19]|DRESS_RPM|修整轮转速
 |WHEEL[20]|DRESS_VER_INIT_L|砂轮2当前左端接触位置
 |WHEEL[21]|DRESS_VER_INIT_R|砂轮2当前右端接触位置
 |WHEEL[22]|DWHEEL_TOUCH_L|砂轮2初始左端接触位置
 |WHEEL[23]|DWHEEL_TOUCH_R|砂轮2初始右端接触位置
 |WHEEL[24]|ROLLING_TOUCH|新砂轮2与滚压轮接触位置
+|WHEEL[25]|MOLD_TIME2|成型修整轮向下停留时间2
 |||
 |**三角齿形(TRI)**||
 |TRI[0]|TRIANGLE_VER|齿高
@@ -343,4 +348,3 @@
 |TECH_DRESS_TIME[3]|TECH_DRESS_TIME_F|精磨修整次数
 |TECH_DRESS_TIME[4]|TECH_DRESS_TIME_DIY|DIY修整次数
 |TECH_DRESS_TIME[5]|TECH_DRESS_TIME|当前磨削修整次数
-
