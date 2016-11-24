@@ -3,11 +3,12 @@ PROC S_PAR_INI SBLOF DISPLOF
 
 DRFOF;手轮偏置清除
 INI[25]=1;退刀计算标志位置1
+GRIND[1]=$A_DBB[0];是否修整
+GRIND[2]=$A_DBB[1];是否对刀
 
 DRESSER[41]=-DRESSER[2]+((DRESSER[39]-DRESSER[23]/2-DRESSER[37]/2)/2+DRESSER[23]/2);修整轮相对砂轮1&2修整起点位置X坐标
 
 ;新砂轮时磨削初始和当前接触
-GRIND[1]=$A_DBB[0];是否修整
 IF GRIND[1]==1
 	IF (DRESSER[5]==0) AND (DRESSER[45]==1) AND (INI[29]==0);砂轮1为新砂轮且要修整
 		PROCESS[13]=PROCESS[13]+(WHEEL[12]-WHEEL[10]);新砂轮1接触工件位置等于初始接触加上当前与初始接触修整轮距离(如果相减为负则说明新砂轮直径小于当前旧砂轮)
