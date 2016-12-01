@@ -6,6 +6,11 @@ PROCESS[3]=0;修整标记清零
 DRESSER[44]=0;取消标记
 INI[25]=1;退刀计算标志位置1
 
+IF INI[32]==1;磨削中不正常退出标记
+	PROCESS[4]=PROCESS[4]+PROCESS[8];当前磨削位回退
+	INI[32]=0;磨削中不正常退出标记
+ENDIF
+
 ;新砂轮时磨削初始和当前接触
 GRIND[1]=$A_DBB[0];是否修整
 IF GRIND[1]==1
