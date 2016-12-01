@@ -8,6 +8,11 @@ GRIND[2]=$A_DBB[1];是否对刀
 
 DRESSER[41]=-DRESSER[2]+((DRESSER[39]-DRESSER[23]/2-DRESSER[37]/2)/2+DRESSER[23]/2);修整轮相对砂轮1&2修整起点位置X坐标
 
+IF INI[32]==1;磨削中不正常退出标记
+	PROCESS[4]=PROCESS[4]+PROCESS[8];当前磨削位回退
+	INI[32]=0;磨削中不正常退出标记
+ENDIF
+
 ;新砂轮时磨削初始和当前接触
 IF GRIND[1]==1
 	IF (DRESSER[5]==0) AND (DRESSER[45]==1) AND (INI[29]==0);砂轮1为新砂轮且要修整

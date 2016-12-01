@@ -126,6 +126,7 @@
 |INI[29]|TOUCH1_POINT_CACU_FLAG|新砂轮1磨削接触位计算标记
 |INI[30]|TOUCH2_POINT_CACU_FLAG|新砂轮2磨削接触位计算标记
 |INI[31]|OBJECT_CUMU|工件计件
+|INI[32]||磨削中不正常退出标记
 |||
 |**对刀(TOOL_SET)**||
 |TOOL_SET[0]|RANDOM_POS|初始对刀点Z轴坐标
