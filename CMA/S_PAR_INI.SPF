@@ -44,6 +44,10 @@ ENDIF
 
 DRFOF;手轮偏置清除
 
+IF GRIND[2]==0;不对刀
+	TOOL_SET[4]=TOOL_SET[40];起始角等于手动输入的角度
+ENDIF
+
 IF INI[47]==1;磨削中不正常退出标记
 	PROCESS[4]=PROCESS[4]+PROCESS[8];当前磨削位回退
 	INI[47]=0;磨削中不正常退出标记
