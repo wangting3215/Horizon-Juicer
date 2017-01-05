@@ -54,7 +54,7 @@ ELSE
 ENDIF
 M9
 M39
-G4 F1
+G4 F0.1
 
 M30
 
