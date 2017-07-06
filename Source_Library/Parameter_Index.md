@@ -69,7 +69,7 @@
 |DRESSER[34]|DWHEEL_MID_R|右修整轮对砂轮中心
 |DRESSER[35]|WHEEL_MIN_diameter|砂轮最小直径
 |DRESSER[36]|DRESS_WHEEL_RPM|修整时砂轮转速
-|DRESSER[37]|N_CX_X_TYPE|内螺纹成型X前/后
+|DRESSER[37]|N_CX_X_TYPE|成型X修整时,修整器在前还是在后,前(0)/后(1)
 |DRESSER[38]|TECH_DRESS_CUMU|界面工艺修整量总量
 |DRESSER[39]|
 |DRESSER[40]|
@@ -220,6 +220,9 @@
 |INI[75]||磨削几件后修整标记位
 |INI[76]||蜗杆模数输入
 |INI[77]||上一次新砂轮直径缓存
+|INI[78]||有无二次对刀(0无1有)
+|INI[79]||程序结束砂轮是否停止(0停/1不停)
+|INI[80]||对刀zc插补速度
 |||
 |**对刀(TOOL_SET)**||
 |TOOL_SET[0]|RANDOM_POS|初始对刀点Z轴坐标
@@ -241,7 +244,7 @@
 |TOOL_SET[16]|ANG_L|左齿形角
 |TOOL_SET[17]|ANG_R|右齿形角
 |TOOL_SET[18]|WORK_DEPTH_INIT|工件初开深度
-|TOOL_SET[19]|TOOL_SET_POS|(0中点对刀/1起点对刀/2任意)
+|TOOL_SET[19]|TOOL_SET_POS|(0起点对刀/1中点对刀/2任意)
 |TOOL_SET[20]|DRF_X|对刀完成时手轮偏置值
 |TOOL_SET[21]|JOG_Z|对刀完成后Z轴坐标(手动对刀)
 |TOOL_SET[22]|FXQK|(0=圆形孔,1=腰型孔)
@@ -303,6 +306,8 @@
 |TRI[11]||调整左圆弧
 |TRI[12]||调整右圆弧
 |TRI[13]||过渡圆弧带直线段长度
+|TRI[14]||新砂轮抬刀高度
+|TRI[15]||齿形结束时修出线与水平线的角度
 |||
 |**梯形(TRAP)**||
 |TRAP[0]|TRAP_VER|齿高
