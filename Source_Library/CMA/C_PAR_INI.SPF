@@ -24,13 +24,36 @@ INI[72]=0;磨削中进行过修整后的标记
 ;非蜗杆磨床时对存储齿形程序的变量赋值
 IF GRIND[0]<>2;非蜗杆
 	IF (DRESSER[0]==0) OR (DRESSER[0]==1);VW/XZ
-		IF DRESSER[4]==0;齿形选择(0三角/1梯形/2双圆弧)
-			SHAPE="D_TRIANGLE"
-		ELSE
-			IF DRESSER[4]==1
-				SHAPE="D_TRAPEZOIDAL"
+		IF DRESSER[114]==0;是否使用通用齿形程序(0否1是)
+			IF DRESSER[4]==0;齿形选择(0三角/1梯形/2双圆弧)
+				SHAPE="D_TRIANGLE"
 			ELSE
-				SHAPE="D_DOUBLE_ARC"
+				IF DRESSER[4]==1
+					SHAPE="D_TRAPEZOIDAL"
+				ELSE
+					SHAPE="D_DOUBLE_ARC"
+				ENDIF
+			ENDIF
+		ELSE
+			SHAPE="D_COMMON_SHAPE"
+			IF DRESSER[115]==0;齿形1
+				WHICH_COMMON_SHAPE="F_COMMON_SHAPE_1"
+			ELSE
+				IF DRESSER[115]==1;齿形2
+					WHICH_COMMON_SHAPE="F_COMMON_SHAPE_2"
+				ELSE
+					IF DRESSER[115]==2;齿形3
+						WHICH_COMMON_SHAPE="F_COMMON_SHAPE_3"
+					ELSE
+						IF DRESSER[115]==3;齿形4
+							WHICH_COMMON_SHAPE="F_COMMON_SHAPE_4"
+						ELSE
+							IF DRESSER[115]==4;齿形5
+								WHICH_COMMON_SHAPE="F_COMMON_SHAPE_5"
+							ENDIF
+						ENDIF
+					ENDIF
+				ENDIF
 			ENDIF
 		ENDIF
 	ELSE
@@ -39,6 +62,13 @@ IF GRIND[0]<>2;非蜗杆
 		ELSE;液压
 			SHAPE="D_HYDRAULIC"
 		ENDIF
+	ENDIF
+ELSE;蜗杆
+	IF INI[86]==0;;蜗杆修整时用蜗杆齿形0还是螺纹齿形1
+		SHAPE=WORM_SHAPE
+	ELSE
+		SHAPE="D_COMMON_SHAPE"
+		WHICH_COMMON_SHAPE="F_COMMON_SHAPE_7"
 	ENDIF
 ENDIF
 
@@ -58,7 +88,7 @@ ELSE
 				TOOL_SET[8]=0;首次对刀
 			ELSE
 				IF ($A_DBB[1]==1) AND ($A_DBB[5]==1)
-					GRIND[2]=3;自动对刀(计算C角度+X位置)
+					GRIND[2]=2;自动对刀(只计算C角度)
 					TOOL_SET[8]=0;首次对刀
 				ENDIF
 			ENDIF
@@ -68,10 +98,14 @@ ENDIF
 
 IF INI[69]==1;有自动对刀(0没有/1有)
 	IF (GRIND[2]==0) OR (GRIND[2]==1);不对刀或手动对刀过程
-		M34;测头退回
-		WHILE($A_DBB[7]==0);等待测头缩回
-			G4 F0.2
-		ENDWHILE
+		IF TOOL_SET[31]==1;自动对刀是否有接近开关测量机构
+			F_PROBE_M_BACK(TOOL_SET[51]);接近开关退回
+			F_PROBE_DBB_BACK(TOOL_SET[51]);等待接近开关缩回
+		ENDIF
+		IF TOOL_SET[49]==1;自动对刀是否有测量头测量结构
+			F_PROBE_M_BACK(TOOL_SET[52]);测量头退回
+			F_PROBE_DBB_BACK(TOOL_SET[52]);等待测量头缩回
+		ENDIF
 	ENDIF
 ENDIF
 
@@ -146,9 +180,6 @@ INI[9]=360*(INI[3]-INI[24])/INI[5];磨削总角度
 INI[8]=(INI[2]+INI[1])/2;磨削中点
 
 ;锥度相关计算,内螺纹大头往小头磨,外螺纹小头往大头磨
-IF GRIND[0]==2;蜗杆
-	INI[11]=0;蜗杆无锥度磨削
-ENDIF
 IF INI[11]==0;判断有无锥度
 	INI[14]=0;锥度值
 ELSE
